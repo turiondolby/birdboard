@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Project;
 use Tests\TestCase;
 use Facades\Tests\Setup\ProjectFactory;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProjectTasksTest extends TestCase
@@ -51,7 +50,7 @@ class ProjectTasksTest extends TestCase
     public function a_task_can_be_marked_as_completed()
     {
         $this->withoutExceptionHandling();
-        
+
         $project = ProjectFactory::withTasks(1)->create();
 
         $this->actingAs($project->owner)
