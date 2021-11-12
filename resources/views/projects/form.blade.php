@@ -10,7 +10,8 @@
                 name="title"
                 placeholder="My next awesome project"
                 required
-                {{-- value="{{ $project->title }}"> --}}
+                {{-- value="{{ $project->title }}" --}}
+        >
     </div>
 </div>
 
