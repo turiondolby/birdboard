@@ -21,6 +21,7 @@ class CreateActivitiesTable extends Migration
             // $table->unsignedInteger('subject_id')->nullable(); //e.g. 9
             // $table->string('subject')->nullable(); //e.g. App\Task
             $table->string('description');
+            $table->text('changes')->nullable();
             $table->timestamps();
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
