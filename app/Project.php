@@ -38,7 +38,7 @@ class Project extends Model
 
     public function members()
     {
-        return $this->belongsToMany(User::class, 'project_members');
+        return $this->belongsToMany(User::class, 'project_members')->withTimestamps();
         //is it true that a project can have many members
         //and also can a member belong to many projects
     }
