@@ -31,4 +31,16 @@ class Project extends Model
         return $this->tasks()->create(compact('body'));
     }
 
+    public function invite(User $user)
+    {
+        return $this->members()->attach($user);
+    }
+
+    public function members()
+    {
+        return $this->belongsToMany(User::class, 'project_members');
+        //is it true that a project can have many members
+        //and also can a member belong to many projects
+    }
+
 }
