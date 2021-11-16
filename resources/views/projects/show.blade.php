@@ -39,7 +39,7 @@
                                 @method('PATCH')
                                 @csrf
 
-                                <div class="flex">
+                                <div class="flex items-center">
                                     <input name="body" value="{{ $task->body }}" class="w-full {{ $task->completed ? 'text-grey' : '' }}">
                                     <input name="completed" type="checkbox" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
                                 </div>
@@ -74,19 +74,17 @@
                         <button type="submit" class="button">Save</button>
                     </form>
 
-                    @if ($errors->any())
-                        <div class="field mt-6">
-                            @foreach ($errors->all() as $error)
-                                <li class="text-sm text-red">{{ $error }}</li>
-                            @endforeach
-                        </div>
-                    @endif
+                    @include('errors')
                 </div>
             </div>
 
             <div class="lg:w-1/4 px-3 lg:py-8">
-                @include ('projects.card')
-                @include ('projects.activity.card')
+                @include('projects.card')
+                @include('projects.activity.card')
+
+                @can('manage', $project)
+                    @include('projects.invite')
+                @endcan
             </div>
         </div>
     </main>
